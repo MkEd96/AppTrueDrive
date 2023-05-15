@@ -16,6 +16,9 @@ void printUserInputQueue(const queue<string>& userInputQueue);
 int main(){
     char respuesta = '\0';
     int opciones;
+    
+    //vehiculo
+    
     int placataxi;
     int yeartaxi;
     string motortaxi;
@@ -25,6 +28,23 @@ int main(){
     vector<string> motor;
     vector<string> modelo;
     queue<string> userInputQueue;
+    
+    //conductor
+    
+    //Conductor
+    
+    string nombre;
+    string apellido;
+    int dui;
+    int licencia;
+    int numisss;
+    int telefono;
+    vector<string> vnombre;
+    vector<string> vapellido;
+    vector<int> vdui;
+    vector<int> vlicencia;
+    vector<int> vnumisss;
+    vector<int> vtelefono;
 
     cout << "Bienvenido a TrueDrive" << endl;
 
@@ -42,6 +62,7 @@ int main(){
         switch (opciones) {
             case 1:
             	
+                //DATOS DEL VEHICULO
             	// PLACA ES INT
             	
                 do {
@@ -77,11 +98,56 @@ int main(){
                 } while (checkForItemInt(year, yeartaxi));
                 year.push_back(yeartaxi);
                 
+                //DATOS DEL CONDUTOR
+                
+                do{
+                	cout<< "Ingresando datos del conductor...\n";
+                	cout<< "Ingrese el nombre: ";
+                	cin>>nombre;
+				}while(checkForItemString(vnombre,nombre));
+				vnombre.push_back(nombre);
+				
+				do{
+					cout<< "Ingrese el apellido: ";
+					cin>>apellido;
+				}while(checkForItemString(vapellido,apellido));
+				vapellido.push_back(apellido);
+                
+                do{
+                	cout<<"Ingrese el # de DUI sin guion: ";
+                	cin>>dui;
+				}while(checkForItemInt(vdui,dui));
+				vdui.push_back(dui);
+				
+				do{
+					cout<<"Ingresa el # de licencia sin guion: ";
+					cin>>licencia;
+				}while(checkForItemInt(vlicencia,licencia));
+				vlicencia.push_back(licencia);
+				
+				do{
+					cout<< "Ingresa el numero de seguro social sin guiones: ";
+					cin>>numisss;
+				}while(checkForItemInt(vnumisss,numisss));
+				vnumisss.push_back(numisss);
+				
+				do{
+					cout<< "Ingresa el numero de telefono: ";
+					cin>>telefono;
+				}while(checkForItemInt(vtelefono,telefono));
+				vtelefono.push_back(telefono);
+                
                 // Agrega todo al QUEUE ()
     			userInputQueue.push(to_string(placataxi));
     			userInputQueue.push(motortaxi);
     			userInputQueue.push(modelotaxi);
     			userInputQueue.push(to_string(yeartaxi));
+    			userInputQueue.push(nombre);
+    			userInputQueue.push(apellido);
+    			userInputQueue.push(to_string(dui));
+    			userInputQueue.push(to_string(licencia));
+    			userInputQueue.push(to_string(numisss));
+    			userInputQueue.push(to_string(telefono));
 
                 break;
 
